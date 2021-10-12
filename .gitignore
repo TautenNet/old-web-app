@@ -1,3 +1,4 @@
+.yarn.lock
 .snowpack
 build
 node_modules

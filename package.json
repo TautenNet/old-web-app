@@ -6,5 +6,6 @@
   },
   "devDependencies": {
     "snowpack": "^3.3.7"
-  }
+  },
+  "dependencies": {}
 }
