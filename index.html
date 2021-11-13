@@ -1,13 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Starter Snowpack App" />
-    <title>Tauten</title>
-  </head>
-  <body>
-    <h1>Welcome to Tauten!</h1>
-    <script type="module" src="/index.js"></script>
-  </body>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Unclutter your communication ways" />
+        <script src="res/js/main.js"></script>
+        <link rel="stylesheet" href="res/css/style.css">
+        <link rel="stylesheet" href="res/css/dark-theme.css" media="(prefers-color-scheme: dark)">
+        <link rel="stylesheet" href="res/css/light-theme.css" media="(prefers-color-scheme: light)">
+        <link rel="manifest" href="manifest.webmanifest">
+        <link rel="shortcut icon" href="favicon.ico">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <link rel="apple-touch-icon" href="res/icon/192.png">
+        <title>Tauten</title>
+      </head>
+      <body>
+        <div class="screens">
+            <div class="welcome showed">
+                <div class="logo"></div>
+                <h1>Welcome to Tauten</h1>
+                <div class="buttongroup">
+                    <button onclick="screen.switchTo('signup')" class="accent">Sign Up</button>
+                    <button onclick="screen.switchTo('signin')">Sign In</button>
+                </div>
+            </div>
+            <div class="signup">
+                <div class="actionbar">
+                    <div class="back" onclick="screen.switchTo('welcome', {anim: 'unscale'})"></div>
+                    <span class="title">Sign Up</span>
+                </div>
+                <div class="content">
+                    <div class="logo"></div>
+                    <form action="javascript:void(0)">
+                        <input type="username" placeholder="Username">
+                        <input type="email" placeholder="E-Mail">
+                        <input type="password" placeholder="Password">
+                        <input type="submit" value="Sign Up" class="accent">
+                        <a>I forgot my password</a>
+                    </form>
+                </div>
+            </div>
+            <div class="signin">
+                <div class="actionbar">
+                    <div class="back" onclick="screen.switchTo('welcome', {anim: 'unscale'})"></div>
+                    <span class="title">Sign In</span>
+                </div>
+                <div class="content">
+                    <div class="logo"></div>
+                    <form action="javascript:void(0)">
+                        <input type="email" placeholder="E-Mail">
+                        <input type="password" placeholder="Password">
+                        <input type="submit" class="accent" value="Sign In" onclick="screen.floating.show('loading')">
+                        <a>I forgot my password</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="floatings">
+            <div class="loading">
+                <div class="loadingring"></div>
+            </div>
+        </div>
+      </body>
 </html>

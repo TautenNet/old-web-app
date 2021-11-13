@@ -1,0 +1,57 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g opacity="0.75" clip-path="url(#clip0_214_28)">
+<g opacity="0.125" clip-path="url(#clip1_214_28)">
+<rect width="3" height="7.5" rx="1.5" transform="matrix(-0.707107 -0.707107 -0.707107 0.707107 21.5459 4.57538)" fill="white"/>
+</g>
+<g opacity="0.25" clip-path="url(#clip2_214_28)">
+<rect width="3" height="7.5" rx="1.5" transform="matrix(0 -1 -1 0 24 13.5)" fill="white"/>
+</g>
+<g opacity="0.375" clip-path="url(#clip3_214_28)">
+<rect width="3" height="7.5" rx="1.5" transform="matrix(0.707107 -0.707107 -0.707107 -0.707107 19.4246 21.5457)" fill="white"/>
+</g>
+<g opacity="0.5" clip-path="url(#clip4_214_28)">
+<rect width="3" height="7.5" rx="1.5" transform="matrix(1 0 0 -1 10.5 24.0001)" fill="white"/>
+</g>
+<g opacity="0.625" clip-path="url(#clip5_214_28)">
+<rect width="3" height="7.5" rx="1.5" transform="matrix(0.707107 0.707107 0.707107 -0.707107 2.45404 19.4246)" fill="white"/>
+</g>
+<g opacity="0.75" clip-path="url(#clip6_214_28)">
+<rect width="3" height="7.5" rx="1.5" transform="matrix(0 1 1 0 7.62939e-06 10.4999)" fill="white"/>
+</g>
+<g opacity="0.875" clip-path="url(#clip7_214_28)">
+<rect width="3" height="7.5" rx="1.5" transform="matrix(-0.707107 0.707107 0.707107 0.707107 4.57539 2.4541)" fill="white"/>
+</g>
+<g clip-path="url(#clip8_214_28)">
+<rect width="3" height="7.5" rx="1.5" transform="matrix(-1 0 0 1 13.5 0)" fill="white"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_214_28">
+<rect width="24" height="24" fill="white" transform="matrix(-1 0 0 1 24 0)"/>
+</clipPath>
+<clipPath id="clip1_214_28">
+<rect width="3" height="24" fill="white" transform="matrix(-0.707107 -0.707107 -0.707107 0.707107 21.5459 4.57538)"/>
+</clipPath>
+<clipPath id="clip2_214_28">
+<rect width="3" height="24" fill="white" transform="matrix(0 -1 -1 0 24 13.5)"/>
+</clipPath>
+<clipPath id="clip3_214_28">
+<rect width="3" height="24" fill="white" transform="matrix(0.707107 -0.707107 -0.707107 -0.707107 19.4246 21.5457)"/>
+</clipPath>
+<clipPath id="clip4_214_28">
+<rect width="3" height="24" fill="white" transform="matrix(1 0 0 -1 10.5 24.0001)"/>
+</clipPath>
+<clipPath id="clip5_214_28">
+<rect width="3" height="24" fill="white" transform="matrix(0.707107 0.707107 0.707107 -0.707107 2.45404 19.4246)"/>
+</clipPath>
+<clipPath id="clip6_214_28">
+<rect width="3" height="24" fill="white" transform="matrix(0 1 1 0 7.62939e-06 10.4999)"/>
+</clipPath>
+<clipPath id="clip7_214_28">
+<rect width="3" height="24" fill="white" transform="matrix(-0.707107 0.707107 0.707107 0.707107 4.57539 2.4541)"/>
+</clipPath>
+<clipPath id="clip8_214_28">
+<rect width="3" height="24" fill="white" transform="matrix(-1 0 0 1 13.5 0)"/>
+</clipPath>
+</defs>
+</svg>

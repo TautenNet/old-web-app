@@ -1,0 +1,329 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500&family=Source+Sans+Pro:wght@300;400;600;700&display=swap");
+.floatings {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  -webkit-animation: fadein 0.3s;
+          animation: fadein 0.3s;
+}
+.floatings:not(.showed) {
+  display: none !important;
+}
+.floatings > * {
+  position: fixed;
+}
+.floatings > *:not(.showed) {
+  display: none !important;
+}
+.floatings > .loading {
+  background-color: var(--normal-tone-bg);
+  padding: 32px;
+  border-radius: 16px;
+}
+
+.screens {
+  height: 100%;
+}
+.screens > * {
+  position: fixed;
+}
+.screens > *:not(.showed) {
+  display: none !important;
+}
+.screens > .welcome,
+.screens > .signin > .content,
+.screens > .signup > .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  max-height: 100%;
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 32px;
+  min-height: -moz-min-content;
+  min-height: -webkit-min-content;
+  min-height: min-content;
+}
+.screens > .welcome > .logo {
+  margin-bottom: 32px;
+  height: 64px;
+  width: 64px;
+}
+.screens > .welcome > .buttongroup {
+  margin-top: 48px;
+  width: 210px;
+}
+.screens > .signup, .screens > .signin {
+  height: 100%;
+  width: 100%;
+}
+.screens > .signup > .actionbar, .screens > .signin > .actionbar {
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: var(--darker-tone-bg);
+  height: 54px;
+}
+.screens > .signup > .actionbar > .back, .screens > .signin > .actionbar > .back {
+  margin-left: -16px;
+  width: 24px;
+  height: 100%;
+  padding: 0 16px;
+}
+.screens > .signup > .content, .screens > .signin > .content {
+  box-sizing: border-box;
+  max-height: calc(100% - 54px);
+}
+.screens > .signup > .content > .logo, .screens > .signin > .content > .logo {
+  height: 48px;
+  width: 48px;
+  margin-bottom: 96px;
+}
+.screens > .signup > .content > form, .screens > .signin > .content > form {
+  width: 250px;
+}
+
+@-webkit-keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadein {
+  0% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes fadeout {
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes fadeout {
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes unscalein {
+  0% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+@keyframes unscalein {
+  0% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes unscaleout {
+  100% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+@keyframes unscaleout {
+  100% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes scalein {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+@keyframes scalein {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes scaleout {
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+@keyframes scaleout {
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes errorpopup {
+  5%, 95% {
+    transform: translateY(0px);
+  }
+}
+@keyframes errorpopup {
+  5%, 95% {
+    transform: translateY(0px);
+  }
+}
+@-webkit-keyframes loadingring {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes loadingring {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+* {
+  -webkit-appearance: none;
+}
+
+.loadingring {
+  -webkit-animation: loadingring linear 0.5s infinite;
+          animation: loadingring linear 0.5s infinite;
+  -webkit-animation-timing-function: steps(8, end);
+          animation-timing-function: steps(8, end);
+  height: 24px;
+  width: 24px;
+}
+
+.logo {
+  background-size: cover;
+}
+
+.logo, .loadingring, .back {
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.back {
+  transition: 0.2s;
+}
+.back:active {
+  background-color: var(--foreground-tone-10);
+}
+
+/*.errorpopup {
+    position:fixed;
+    z-index:9999;
+    background:inherit;
+    transform: translateY(-20px);
+    animation: errorpopup 5s linear;
+    height: 20px;
+}*/
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: var(--normal-tone-bg);
+  color: var(--foreground-tone-100);
+  margin: 0;
+  font-family: Source Sans Pro;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Roboto Slab";
+  font-weight: 400;
+  margin: 0;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+.buttongroup, form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.buttongroup button, .buttongroup input[type=submit], form button, form input[type=submit] {
+  height: 40px;
+}
+.buttongroup > *, form > * {
+  margin: 4px 0;
+  width: 100%;
+}
+.buttongroup > *:first-child, form > *:first-child {
+  margin-top: 0;
+}
+.buttongroup > *:last-child, form > *:last-child {
+  margin-bottom: 0;
+}
+.buttongroup > a, form > a {
+  margin: 16px;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+form > button, form input[type=submit] {
+  margin-top: 24px;
+}
+
+button, input {
+  outline: none;
+}
+
+button, input[type=submit] {
+  height: 40px;
+  border: none;
+  font-size: 14px;
+  box-shadow: var(--shadow);
+  color: var(--foreground-tone-100);
+  background-color: var(--lighter-tone-bg);
+  border-radius: 4px;
+  transition: 0.2s;
+}
+button.accent, input[type=submit].accent {
+  background-color: var(--accent-tone-100);
+  color: white;
+}
+button:active, input[type=submit]:active {
+  background-color: var(--accent-tone-50);
+  transition: 0s;
+}
+
+input {
+  background-color: var(--darker-tone-bg);
+  border: none;
+  height: 40px;
+  color: var(--foreground-tone-100);
+  font-family: inherit;
+  font-size: 16px;
+  border-radius: 4px;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+input::-moz-placeholder {
+  color: var(--foreground-tone-40);
+}
+input:-ms-input-placeholder {
+  color: var(--foreground-tone-40);
+}
+input::placeholder {
+  color: var(--foreground-tone-40);
+}
+input:-webkit-autofill {
+  background-color: var(--darker-tone-bg) !important;
+}
+
+a {
+  color: var(--accent-tone-100);
+  -webkit-text-decoration: underline solid var(--accent-tone-50);
+          text-decoration: underline solid var(--accent-tone-50);
+  font-weight: 700;
+  cursor: pointer;
+}
+a:link, a:visited {
+  color: var(--accent-tone-70);
+}

@@ -1,0 +1,25 @@
+@use "sass:color";
+
+html {
+    --lighter-tone-bg: #2F3845;
+    --normal-tone-bg: #252c36;
+    --darker-tone-bg: #1d2229;
+    --icon-mode: "white";
+    --shadow: 0 4px 4px #{rgba(black, 0.15)};
+    @for $i from 1 through 10 {
+        --accent-tone-#{$i*10}: #{rgba(#c3753c, $i * 0.1)};
+        --foreground-tone-#{$i*10}: #{rgba(white, $i * 0.1)};
+    }
+}
+
+.logo {
+    background-image: url("../icons/Tauten-logo-white.svg");
+}
+
+.back {
+    background-image: url("../icons/arrow_back_white_24dp.svg");
+}
+
+.loading {
+    background-image: url(../icons/Loadingring-white.svg);
+}

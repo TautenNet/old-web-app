@@ -1,0 +1,145 @@
+@use "_floatings";
+@use "_screens";
+@use "_keyframes";
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500&family=Source+Sans+Pro:wght@300;400;600;700&display=swap');
+
+* {
+    -webkit-appearance: none;
+}
+
+.loadingring {
+    animation: loadingring linear 0.5s infinite;
+    animation-timing-function: steps(8, end);
+    height: 24px;
+    width: 24px;
+}
+
+.logo {
+    background-size: cover;
+}
+
+.logo, .loadingring, .back  {
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.back {
+    transition: 0.2s;
+
+    &:active {
+        background-color: var(--foreground-tone-10);
+    }
+}
+
+/*.errorpopup {
+    position:fixed;
+    z-index:9999;
+    background:inherit;
+    transform: translateY(-20px);
+    animation: errorpopup 5s linear;
+    height: 20px;
+}*/
+
+html, body { height: 100% }
+
+body {
+    background-color: var(--normal-tone-bg);
+    color: var(--foreground-tone-100);
+    margin: 0;
+    font-family: Source Sans Pro;
+}
+
+h1,
+h2,
+h3 {
+    font-family: "Roboto Slab";
+    font-weight: 400;
+    margin: 0;
+}
+
+h1 {
+    font-size: 24px;
+}
+
+.buttongroup, form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    button, input[type="submit"] {
+        height: 40px;
+    }
+
+    > * {
+        margin: 4px 0;
+        width: 100%;
+        &:first-child { margin-top: 0 }
+        &:last-child { margin-bottom: 0 }
+    }
+
+    > a {
+        margin: 16px;
+        font-weight: 400;
+        font-size: 14px;
+    }
+}
+
+form {
+    > button, input[type="submit"] {
+        margin-top: 24px; 
+    }
+}
+
+button, input { outline: none }
+
+button, input[type="submit"] {
+    height: 40px;
+    border: none;
+    font-size: 14px;
+    box-shadow: var(--shadow);
+    color: var(--foreground-tone-100);
+    background-color: var(--lighter-tone-bg);
+    border-radius: 4px;
+    transition: 0.2s;
+
+    &.accent {
+        background-color: var(--accent-tone-100);
+        color: white;
+    }
+
+    &:active {
+        background-color: var(--accent-tone-50);
+        transition: 0s;
+    }
+}
+
+input {
+    background-color: var(--darker-tone-bg);
+    border:none;
+    height: 40px;
+    color: var(--foreground-tone-100);
+    font-family: inherit;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 0 16px;
+    box-sizing: border-box;
+
+    &::placeholder {
+        color: var(--foreground-tone-40);
+    }
+
+    &:-webkit-autofill {
+        background-color: var(--darker-tone-bg) !important; // Not sure if it works
+    }
+}
+
+a {
+    color: var(--accent-tone-100);
+    text-decoration: underline solid var(--accent-tone-50);
+    font-weight: 700;
+    cursor: pointer;
+
+    &:link, &:visited {
+        color: var(--accent-tone-70);
+    }
+}

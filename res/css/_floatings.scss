@@ -1,0 +1,26 @@
+.floatings {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadein 0.3s;
+    
+    &:not(.showed) { display: none !important }
+
+    > * {
+        position: fixed;
+
+        &:not(.showed) { display: none !important }
+    }
+
+    > .loading {
+        background-color: var(--normal-tone-bg);
+        padding: 32px;
+        border-radius: 16px;
+    }
+}

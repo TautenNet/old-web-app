@@ -1,0 +1,39 @@
+html {
+  --lighter-tone-bg: #2F3845;
+  --normal-tone-bg: #252c36;
+  --darker-tone-bg: #1d2229;
+  --icon-mode: "white";
+  --shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
+  --accent-tone-10: rgba(195, 117, 60, 0.1);
+  --foreground-tone-10: rgba(255, 255, 255, 0.1);
+  --accent-tone-20: rgba(195, 117, 60, 0.2);
+  --foreground-tone-20: rgba(255, 255, 255, 0.2);
+  --accent-tone-30: rgba(195, 117, 60, 0.3);
+  --foreground-tone-30: rgba(255, 255, 255, 0.3);
+  --accent-tone-40: rgba(195, 117, 60, 0.4);
+  --foreground-tone-40: rgba(255, 255, 255, 0.4);
+  --accent-tone-50: rgba(195, 117, 60, 0.5);
+  --foreground-tone-50: rgba(255, 255, 255, 0.5);
+  --accent-tone-60: rgba(195, 117, 60, 0.6);
+  --foreground-tone-60: rgba(255, 255, 255, 0.6);
+  --accent-tone-70: rgba(195, 117, 60, 0.7);
+  --foreground-tone-70: rgba(255, 255, 255, 0.7);
+  --accent-tone-80: rgba(195, 117, 60, 0.8);
+  --foreground-tone-80: rgba(255, 255, 255, 0.8);
+  --accent-tone-90: rgba(195, 117, 60, 0.9);
+  --foreground-tone-90: rgba(255, 255, 255, 0.9);
+  --accent-tone-100: #c3753c;
+  --foreground-tone-100: white;
+}
+
+.logo {
+  background-image: url("../icons/Tauten-logo-white.svg");
+}
+
+.back {
+  background-image: url("../icons/arrow_back_white_24dp.svg");
+}
+
+.loading {
+  background-image: url(../icons/Loadingring-white.svg);
+}

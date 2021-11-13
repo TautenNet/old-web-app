@@ -1,0 +1,49 @@
+@keyframes fadein {
+    0% {
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes unscalein {
+    0% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes unscaleout {
+    100% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+}
+
+@keyframes scalein {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+}
+
+@keyframes scaleout {
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes errorpopup {
+    5%, 95% { transform: translateY(0px) }
+}
+
+@keyframes loadingring {
+    100% {
+        transform: rotate(360deg);
+    }
+}
