@@ -2,36 +2,46 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0" /> <!-- It's getting ignored by safari '-' -->
         <meta name="description" content="Unclutter your communication ways" />
-        <script src="res/js/main.js"></script>
+        <meta name="keywords" content="chat, free, unclutter your communication ways, easy, open-source"/>
+        <script src="res/js/main.js" defer></script>
+        <script src="res/js/layers.js" defer></script>
+        <script src="res/js/api.js" defer></script>
+        <script src="res/js/discussionsList.js" defer></script>
         <link rel="stylesheet" href="res/css/style.css">
         <link rel="stylesheet" href="res/css/dark-theme.css" media="(prefers-color-scheme: dark)">
         <link rel="stylesheet" href="res/css/light-theme.css" media="(prefers-color-scheme: light)">
+        <style>
+            @media (prefers-color-scheme: dark) { body { background-color: #252c36 } }
+            @media (prefers-color-scheme: light) { body { background-color: #f2f2f2 } }
+        </style>
         <link rel="manifest" href="manifest.webmanifest">
         <link rel="shortcut icon" href="favicon.ico">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <link rel="apple-touch-icon" href="res/icon/192.png">
+        <link rel="apple-touch-icon" href="favicon.ico">
+        <meta class="theme-color" name="theme-color" content="#c3753c">
         <title>Tauten</title>
-      </head>
-      <body>
-        <div class="screens">
-            <div class="welcome showed">
+    </head>
+    <body>
+        <div class="screens" style="display: none">
+            <div class="welcome showed" onshow="console.log('socis')" theme-color="var: background-tone-normal">
                 <div class="logo"></div>
                 <h1>Welcome to Tauten</h1>
                 <div class="buttongroup">
                     <button onclick="screen.switchTo('signup')" class="accent">Sign Up</button>
                     <button onclick="screen.switchTo('signin')">Sign In</button>
+                    <!--<button onclick="screen.floating.show('testdialog')">Dialog Style test</button>-->
                 </div>
             </div>
-            <div class="signup">
+            <div class="signup" theme-color="var: background-tone-dark">
                 <div class="actionbar">
-                    <div class="back" onclick="screen.switchTo('welcome', {anim: 'unscale'})"></div>
+                    <div class="back escapable" onclick="screen.switchTo('welcome', {anim: 'unscale'})"></div>
                     <span class="title">Sign Up</span>
                 </div>
                 <div class="content">
                     <div class="logo"></div>
-                    <form action="javascript:void(0)">
+                    <form action="javascript:signup()">
                         <input type="username" placeholder="Username">
                         <input type="email" placeholder="E-Mail">
                         <input type="password" placeholder="Password">
@@ -40,26 +50,58 @@
                     </form>
                 </div>
             </div>
-            <div class="signin">
+            <div class="signin" theme-color="var: background-tone-dark">
                 <div class="actionbar">
-                    <div class="back" onclick="screen.switchTo('welcome', {anim: 'unscale'})"></div>
+                    <div class="back escapable" onclick="screen.switchTo('welcome', {anim: 'unscale'})"></div>
                     <span class="title">Sign In</span>
                 </div>
                 <div class="content">
                     <div class="logo"></div>
-                    <form action="javascript:void(0)">
+                    <form action="javascript:signin()">
                         <input type="email" placeholder="E-Mail">
                         <input type="password" placeholder="Password">
-                        <input type="submit" class="accent" value="Sign In" onclick="screen.floating.show('loading')">
+                        <input type="submit" class="accent" value="Sign In">
                         <a>I forgot my password</a>
                     </form>
                 </div>
             </div>
+            <div class="discussion empty" theme-color="var: background-tone-normal">
+                <div class="messages">
+                    <div class="empty-text">
+                        <div class="bubbles-illust"></div>
+                        <span>
+                            Start a discussion by swiping up on the message box
+                        </span>
+                    </div>
+                </div>
+                <div class="inputbox">
+                    <div class="textarea" contenteditable="true" oninput="console.log('ukulele')"></div>
+                    <div class="empty-text" onclick="screen.floating.show('discussionsList', {anim:'slideup', duration: 500})">
+                        <img src="res/icons/expand_less_white_24dp.svg" class="icon">
+                        <span>Swipe up</span>
+                    </div>
+                    <button class="emotes"><img src="res/icons/insert_emoticon_white_24dp.svg" class="icon"></button>
+                    <button class="attachment"><img src="res/icons/attach_file_white_24dp.svg" class="icon"></button>
+                    <button class="send"><img src="res/icons/send_white_24dp(1).svg" class="icon"></button>
+                </div>
+            </div>
         </div>
-        <div class="floatings">
+        <div class="floatings" style="display: none">
             <div class="loading">
                 <div class="loadingring"></div>
             </div>
+            <div class="dialog inputmissing">
+                <span class="title">Something is missing...</span>
+                <span class="content">Please write your creditentials correctly.</span>
+                <div class="buttongroup vertical">
+                    <button onclick="screen.floating.hide('inputmissing')" class="escapable">OK</button>
+                </div>
+            </div>
+            <div class="discussionsList">
+                <div class="container">
+                    <button onclick="screen.floating.hide('discussionsList', {anim:'slideup', duration: 500})" class="escapable">Back</button>
+                </div>
+            </div>
         </div>
-      </body>
+    </body>
 </html>

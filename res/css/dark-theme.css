@@ -2,6 +2,9 @@ html {
   --lighter-tone-bg: #2F3845;
   --normal-tone-bg: #252c36;
   --darker-tone-bg: #1d2229;
+  --background-tone-light: var(--lighter-tone-bg);
+  --background-tone-normal: var(--normal-tone-bg);
+  --background-tone-dark: var(--darker-tone-bg);
   --icon-mode: "white";
   --shadow: 0 4px 4px rgba(0, 0, 0, 0.15);
   --accent-tone-10: rgba(195, 117, 60, 0.1);
@@ -34,6 +37,10 @@ html {
   background-image: url("../icons/arrow_back_white_24dp.svg");
 }
 
-.loading {
-  background-image: url(../icons/Loadingring-white.svg);
+.loadingring {
+  background-image: url("../icons/Loadingring-white.svg");
+}
+
+.bubbles-illust {
+  background-image: url("../icons/bubbles-white.svg");
 }

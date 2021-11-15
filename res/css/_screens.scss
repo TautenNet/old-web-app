@@ -1,4 +1,5 @@
 .screens {
+    animation: fadein 0.5s;
     height: 100%;
 
     > * {
@@ -35,6 +36,154 @@
         > .buttongroup {
             margin-top: 48px;
             width: 210px;
+        }
+    }
+
+    > .discussion {
+        display:flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+
+        .empty-text {
+            display: none;
+        }
+
+        &.empty {
+            > .inputbox button, > .inputbox .textarea { display: none }
+
+            .empty-text {
+                display: flex;
+            }
+        }
+
+        > .messages {
+            height: calc(100% - var(--inputbox-height));
+
+            .empty-text {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+                font-family: Roboto Slab;
+                font-size: 14px;
+    
+                > span {
+                    margin-top: 32px;
+                    text-align: center;
+                    width: 215px;
+                }
+            }
+        }
+
+        > .inputbox {
+            --shadow: 0 4px 4px #{rgba(black, 0.25)};
+            --button-height: calc(var(--inputbox-height) - 16px);
+            //height: 62px;
+            min-height: var(--inputbox-height);
+            max-height: 25vh;
+            box-sizing: border-box;
+            width: 100%;
+            padding: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: var(--background-tone-dark);
+
+            .empty-text {
+                flex-direction: column;
+                font-size: 14px;
+                font-weight: 600;
+                opacity: 0.75;
+
+                img {
+                    height: 16px;
+                    animation: swipeuparrowEmptytext 0.5s alternate infinite cubic-bezier(0,0,.15,1);
+                }
+            }
+
+            > button, > .textarea {
+                background-color: var(--background-tone-light);
+                min-height: var(--button-height);
+                min-width: var(--button-height);
+                box-shadow: var(--shadow);
+                width: var(--button-height);
+                border-radius: calc((var(--button-height) / 34) * 6);
+                display: flex;
+                align-items: center;
+                
+                &:not(button) {
+                    overflow: auto;
+                    width: 100%;
+                    height: auto;
+                    max-height: 100%;
+                    transition: margin 0.5s;
+                    z-index: 1;
+                    padding: 8px 12px;
+                    font-size: 14px;
+                    order: 0;
+
+                    &:empty {
+                        &:not(:focus)::after {
+                            content: "Type your message...";
+                            color: var(--foreground-tone-30);
+                        }
+
+                        &:focus::after {
+                            content: " ";
+                        }
+                    }
+
+                    &:not(:empty):focus {
+                        margin-right: calc((var(--button-height) + 4px) * -1);
+
+                        ~ .emotes {
+                            opacity: 0.2;
+                        }
+
+                        ~ .attachment {
+                            min-width: calc(var(--button-height) * 0.75) !important;
+                            
+                            > img {
+                                transform: rotate(0deg);
+                            }
+                        }
+                    }
+                }
+
+                &:not(.textarea){
+                    //cursor: pointer;
+                    transition: 0.5s;
+                    justify-content: center;
+
+                    &:active, &.active {
+                        background-color: var(--accent-tone-50);
+                        box-shadow: none;
+                        transition: 0s;
+                        
+                        > img {
+                            filter: none;
+                            opacity: 1;
+                            transition: 0;
+                            transition: 0s;
+                        }
+                    }
+                }
+
+                margin: 0 4px;
+                &:first-child { margin-left: 0 }
+                &:last-child { margin-right: 0 }
+
+                > img {
+                    opacity: 0.75;
+                    transition: 0.5s;
+                    pointer-events: none;
+                }
+            }
+
+            .attachment > img {
+                transform: rotate(-45deg);
+            }
         }
     }
 

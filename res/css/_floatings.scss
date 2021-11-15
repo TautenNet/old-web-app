@@ -23,4 +23,64 @@
         padding: 32px;
         border-radius: 16px;
     }
+
+    > .dialog {
+        width: calc(100% - 64px);
+        max-width: 500px;
+        box-sizing: border-box;
+        background-color: var(--normal-tone-bg);
+        padding: 16px;
+        border-radius: 8px;
+        
+        .title {
+            display: block;
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .content {
+            color:var(--foreground-tone-70);
+            white-space: pre-line;
+        }
+
+        .buttongroup {
+            justify-content: flex-end;
+            margin-top: 8px;
+            margin-bottom: -8px;
+
+            button {
+                box-shadow: none;
+                background: none;
+                font-size: 16px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                color: var(--accent-tone-100);
+                font-weight: 600;
+
+                &:hover {
+                    background: var(--accent-tone-30);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .discussionsList {
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: flex-end;
+        flex-direction: column;
+        overflow-y: auto;
+
+        > .container {
+            background-color: var(--background-tone-normal);
+            min-height: calc(100% - 15vh);
+            margin-top: 15vh;
+            border-radius: 16px 16px 0 0;
+        }
+    }
 }

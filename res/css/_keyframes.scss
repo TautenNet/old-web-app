@@ -47,3 +47,49 @@
         transform: rotate(360deg);
     }
 }
+
+@keyframes swipeuparrowEmptytext {
+    from {
+        opacity: 0.5;
+    }
+
+    to {
+        transform: translateY(-6px) scale(1.5);
+    }
+}
+
+@keyframes slideupin {
+    0% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes slideupout {
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+@keyframes slidedownin {
+    0% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes slidedownout {
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes fogfadein {
+    0% {
+        background-color: transparent;
+    }
+}
+
+@keyframes fogfadeout {
+    100% {
+        background-color: transparent;
+    }
+}
