@@ -25,7 +25,7 @@
     </head>
     <body>
         <div class="screens" style="display: none">
-            <div class="welcome showed" onshow="console.log('socis')" theme-color="var: background-tone-normal">
+            <div class="welcome" onshow="console.log('socis')" theme-color="var: background-tone-normal">
                 <div class="logo"></div>
                 <h1>Welcome to Tauten</h1>
                 <div class="buttongroup">
@@ -65,7 +65,12 @@
                     </form>
                 </div>
             </div>
-            <div class="discussion empty" theme-color="var: background-tone-normal">
+            <div class="discussionList">
+                yo
+                <button onclick="screen.switchTo('discussion', {anim:'slideup', duration: 500})" class="escapable">Back</button>
+                <button onclick="screen.switchTo('welcome', {anim:'unscale'})" class="escapable">welcome screen</button>
+            </div>
+            <div class="discussion empty showed" theme-color="var: background-tone-normal">
                 <div class="messages">
                     <div class="empty-text">
                         <div class="bubbles-illust"></div>
@@ -97,11 +102,11 @@
                     <button onclick="screen.floating.hide('inputmissing')" class="escapable">OK</button>
                 </div>
             </div>
-            <div class="discussionsList">
+            <!--<div class="discussionsList">
                 <div class="container">
                     <button onclick="screen.floating.hide('discussionsList', {anim:'slideup', duration: 500})" class="escapable">Back</button>
                 </div>
-            </div>
+            </div>-->
         </div>
     </body>
 </html>

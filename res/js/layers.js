@@ -12,14 +12,17 @@ var screen = {
         
         screen.currentTimeout = setTimeout(() => {
             fromScreen.classList.remove("showed");
+            screen.updateThemecolor();
         }, properties.duration)
         toScreen.classList.add("showed");
 
         /*if (toScreen.onshow) toScreen.onshow()
         else console.log("cookie")
         if (fromScreen.onhide) fromScreen.onhide()*/
+    },
 
-        let themeColor = toScreen.getAttribute("theme-color");
+    updateThemecolor: () => {
+        let themeColor = $select("body > .screens > .showed").getAttribute("theme-color") || "var: background-tone-normal";
 
         if (themeColor.startsWith("var")) {
             //window.getComputedStyle($select("html"), null).getPropertyValue("--accent-tone-100")
@@ -28,10 +31,9 @@ var screen = {
             themeColor = (themeColor.startsWith("--") ? "" : "--") + themeColor;
 
             themeColor = window.getComputedStyle($select("html"), null).getPropertyValue(themeColor);
-
-            $select(".theme-color").setAttribute("content", themeColor)
         }
 
+        $select(".theme-color").setAttribute("content", themeColor)
     },
 
     onescape: () => {
