@@ -1,15 +1,18 @@
 @use 'sass:color';
 
 html {
-  --lighter-tone-bg: #2f3845;
-  --normal-tone-bg: #252c36;
-  --darker-tone-bg: #1d2229;
-  --icon-mode: 'white';
-  --shadow: 0 4px 4px #{rgba(black, 0.15)};
-  @for $i from 1 through 10 {
-    --accent-tone-#{$i*10}: #{rgba(#c3753c, $i * 0.1)};
-    --foreground-tone-#{$i*10}: #{rgba(white, $i * 0.1)};
-  }
+    --lighter-tone-bg: #2F3845;
+    --normal-tone-bg: #252c36;
+    --darker-tone-bg: #1d2229;
+    --background-tone-light: var(--lighter-tone-bg);
+    --background-tone-normal: var(--normal-tone-bg);
+    --background-tone-dark: var(--darker-tone-bg);
+    --icon-mode: "white";
+    --shadow: 0 4px 4px #{rgba(black, 0.15)};
+    @for $i from 1 through 10 {
+        --accent-tone-#{$i*10}: #{rgba(#c3753c, $i * 0.1)};
+        --foreground-tone-#{$i*10}: #{rgba(white, $i * 0.1)};
+    }
 }
 
 .logo {
@@ -21,5 +24,9 @@ html {
 }
 
 .loadingring {
-  background-image: url(../icons/Loadingring-white.svg);
+    background-image: url("../icons/Loadingring-white.svg");
+}
+
+.bubbles-illust {
+    background-image: url("../icons/bubbles-white.svg");
 }

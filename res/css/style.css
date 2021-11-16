@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;500&family=Source+Sans+Pro:wght@300;400;600;700&display=swap");
 .floatings {
   position: fixed;
@@ -26,8 +27,62 @@
   padding: 32px;
   border-radius: 16px;
 }
+.floatings > .dialog {
+  width: calc(100% - 64px);
+  max-width: 500px;
+  box-sizing: border-box;
+  background-color: var(--normal-tone-bg);
+  padding: 16px;
+  border-radius: 8px;
+}
+.floatings > .dialog .title {
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+.floatings > .dialog .content {
+  color: var(--foreground-tone-70);
+  white-space: pre-line;
+}
+.floatings > .dialog .buttongroup {
+  justify-content: flex-end;
+  margin-top: 8px;
+  margin-bottom: -8px;
+}
+.floatings > .dialog .buttongroup button {
+  box-shadow: none;
+  background: none;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--accent-tone-100);
+  font-weight: 600;
+}
+.floatings > .dialog .buttongroup button:hover {
+  background: var(--accent-tone-30);
+  cursor: pointer;
+}
+.floatings .discussionsList {
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  overflow-y: auto;
+}
+.floatings .discussionsList > .container {
+  background-color: var(--background-tone-normal);
+  min-height: calc(100% - 15vh);
+  margin-top: 15vh;
+  border-radius: 16px 16px 0 0;
+}
 
 .screens {
+  -webkit-animation: fadein 0.5s;
+          animation: fadein 0.5s;
   height: 100%;
 }
 .screens > * {
@@ -61,6 +116,131 @@
 .screens > .welcome > .buttongroup {
   margin-top: 48px;
   width: 210px;
+}
+.screens > .discussion {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+.screens > .discussion .empty-text {
+  display: none;
+}
+.screens > .discussion.empty > .inputbox button, .screens > .discussion.empty > .inputbox .textarea {
+  display: none;
+}
+.screens > .discussion.empty .empty-text {
+  display: flex;
+}
+.screens > .discussion > .messages {
+  height: calc(100% - var(--inputbox-height));
+}
+.screens > .discussion > .messages .empty-text {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-family: Roboto Slab;
+  font-size: 14px;
+}
+.screens > .discussion > .messages .empty-text > span {
+  margin-top: 32px;
+  text-align: center;
+  width: 215px;
+}
+.screens > .discussion > .inputbox {
+  --shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  --button-height: calc(var(--inputbox-height) - 16px);
+  min-height: var(--inputbox-height);
+  max-height: 25vh;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--background-tone-dark);
+}
+.screens > .discussion > .inputbox .empty-text {
+  flex-direction: column;
+  font-size: 14px;
+  font-weight: 600;
+  opacity: 0.75;
+}
+.screens > .discussion > .inputbox .empty-text img {
+  height: 16px;
+  -webkit-animation: swipeuparrowEmptytext 0.5s alternate infinite cubic-bezier(0, 0, 0.15, 1);
+          animation: swipeuparrowEmptytext 0.5s alternate infinite cubic-bezier(0, 0, 0.15, 1);
+}
+.screens > .discussion > .inputbox > button, .screens > .discussion > .inputbox > .textarea {
+  background-color: var(--background-tone-light);
+  min-height: var(--button-height);
+  min-width: var(--button-height);
+  box-shadow: var(--shadow);
+  width: var(--button-height);
+  border-radius: calc((var(--button-height) / 34) * 6);
+  display: flex;
+  align-items: center;
+  margin: 0 4px;
+}
+.screens > .discussion > .inputbox > button:not(button), .screens > .discussion > .inputbox > .textarea:not(button) {
+  overflow: auto;
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  transition: margin 0.5s;
+  z-index: 1;
+  padding: 8px 12px;
+  font-size: 14px;
+  order: 0;
+}
+.screens > .discussion > .inputbox > button:not(button):empty:not(:focus)::after, .screens > .discussion > .inputbox > .textarea:not(button):empty:not(:focus)::after {
+  content: "Type your message...";
+  color: var(--foreground-tone-30);
+}
+.screens > .discussion > .inputbox > button:not(button):empty:focus::after, .screens > .discussion > .inputbox > .textarea:not(button):empty:focus::after {
+  content: " ";
+}
+.screens > .discussion > .inputbox > button:not(button):not(:empty):focus, .screens > .discussion > .inputbox > .textarea:not(button):not(:empty):focus {
+  margin-right: calc((var(--button-height) + 4px) * -1);
+}
+.screens > .discussion > .inputbox > button:not(button):not(:empty):focus ~ .emotes, .screens > .discussion > .inputbox > .textarea:not(button):not(:empty):focus ~ .emotes {
+  opacity: 0.2;
+}
+.screens > .discussion > .inputbox > button:not(button):not(:empty):focus ~ .attachment, .screens > .discussion > .inputbox > .textarea:not(button):not(:empty):focus ~ .attachment {
+  min-width: calc(var(--button-height) * 0.75) !important;
+}
+.screens > .discussion > .inputbox > button:not(button):not(:empty):focus ~ .attachment > img, .screens > .discussion > .inputbox > .textarea:not(button):not(:empty):focus ~ .attachment > img {
+  transform: rotate(0deg);
+}
+.screens > .discussion > .inputbox > button:not(.textarea), .screens > .discussion > .inputbox > .textarea:not(.textarea) {
+  transition: 0.5s;
+  justify-content: center;
+}
+.screens > .discussion > .inputbox > button:not(.textarea):active, .screens > .discussion > .inputbox > button:not(.textarea).active, .screens > .discussion > .inputbox > .textarea:not(.textarea):active, .screens > .discussion > .inputbox > .textarea:not(.textarea).active {
+  background-color: var(--accent-tone-50);
+  box-shadow: none;
+  transition: 0s;
+}
+.screens > .discussion > .inputbox > button:not(.textarea):active > img, .screens > .discussion > .inputbox > button:not(.textarea).active > img, .screens > .discussion > .inputbox > .textarea:not(.textarea):active > img, .screens > .discussion > .inputbox > .textarea:not(.textarea).active > img {
+  filter: none;
+  opacity: 1;
+  transition: 0;
+  transition: 0s;
+}
+.screens > .discussion > .inputbox > button:first-child, .screens > .discussion > .inputbox > .textarea:first-child {
+  margin-left: 0;
+}
+.screens > .discussion > .inputbox > button:last-child, .screens > .discussion > .inputbox > .textarea:last-child {
+  margin-right: 0;
+}
+.screens > .discussion > .inputbox > button > img, .screens > .discussion > .inputbox > .textarea > img {
+  opacity: 0.75;
+  transition: 0.5s;
+  pointer-events: none;
+}
+.screens > .discussion > .inputbox .attachment > img {
+  transform: rotate(-45deg);
 }
 .screens > .signup, .screens > .signin {
   height: 100%;
@@ -182,6 +362,82 @@
     transform: rotate(360deg);
   }
 }
+@-webkit-keyframes swipeuparrowEmptytext {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(-6px) scale(1.5);
+  }
+}
+@keyframes swipeuparrowEmptytext {
+  from {
+    opacity: 0.5;
+  }
+  to {
+    transform: translateY(-6px) scale(1.5);
+  }
+}
+@-webkit-keyframes slideupin {
+  0% {
+    transform: translateY(100%);
+  }
+}
+@keyframes slideupin {
+  0% {
+    transform: translateY(100%);
+  }
+}
+@-webkit-keyframes slideupout {
+  100% {
+    transform: translateY(100%);
+  }
+}
+@keyframes slideupout {
+  100% {
+    transform: translateY(100%);
+  }
+}
+@-webkit-keyframes slidedownin {
+  0% {
+    transform: translateY(-100%);
+  }
+}
+@keyframes slidedownin {
+  0% {
+    transform: translateY(-100%);
+  }
+}
+@-webkit-keyframes slidedownout {
+  100% {
+    transform: translateY(-100%);
+  }
+}
+@keyframes slidedownout {
+  100% {
+    transform: translateY(-100%);
+  }
+}
+@-webkit-keyframes fogfadein {
+  0% {
+    background-color: transparent;
+  }
+}
+@keyframes fogfadein {
+  0% {
+    background-color: transparent;
+  }
+}
+@-webkit-keyframes fogfadeout {
+  100% {
+    background-color: transparent;
+  }
+}
+@keyframes fogfadeout {
+  100% {
+    background-color: transparent;
+  }
+}
 * {
   -webkit-appearance: none;
 }
@@ -193,6 +449,11 @@
           animation-timing-function: steps(8, end);
   height: 24px;
   width: 24px;
+}
+
+.bubbles-illust {
+  height: 128px;
+  width: 128px;
 }
 
 .logo {
@@ -223,11 +484,16 @@ html, body {
   height: 100%;
 }
 
+html {
+  --inputbox-height: 56px;
+}
+
 body {
   background-color: var(--normal-tone-bg);
   color: var(--foreground-tone-100);
   margin: 0;
   font-family: Source Sans Pro;
+  touch-action: pan-y, pan-x;
 }
 
 h1,
@@ -244,21 +510,33 @@ h1 {
 
 .buttongroup, form {
   display: flex;
-  flex-direction: column;
   align-items: center;
 }
-.buttongroup button, .buttongroup input[type=submit], form button, form input[type=submit] {
-  height: 40px;
+.buttongroup:not(.vertical), form:not(.vertical) {
+  flex-direction: column;
 }
-.buttongroup > *, form > * {
+.buttongroup:not(.vertical) > *, form:not(.vertical) > * {
   margin: 4px 0;
   width: 100%;
 }
-.buttongroup > *:first-child, form > *:first-child {
+.buttongroup:not(.vertical) > *:first-child, form:not(.vertical) > *:first-child {
   margin-top: 0;
 }
-.buttongroup > *:last-child, form > *:last-child {
+.buttongroup:not(.vertical) > *:last-child, form:not(.vertical) > *:last-child {
   margin-bottom: 0;
+}
+.buttongroup.vertical button, .buttongroup.vertical input[type=submit], form.vertical button, form.vertical input[type=submit] {
+  padding: 0 8px;
+  margin: 0 4px;
+}
+.buttongroup.vertical button:first-child, .buttongroup.vertical input[type=submit]:first-child, form.vertical button:first-child, form.vertical input[type=submit]:first-child {
+  margin-left: 0;
+}
+.buttongroup.vertical button:last-child, .buttongroup.vertical input[type=submit]:last-child, form.vertical button:last-child, form.vertical input[type=submit]:last-child {
+  margin-right: 0;
+}
+.buttongroup button, .buttongroup input[type=submit], form button, form input[type=submit] {
+  height: 40px;
 }
 .buttongroup > a, form > a {
   margin: 16px;
@@ -270,7 +548,7 @@ form > button, form input[type=submit] {
   margin-top: 24px;
 }
 
-button, input {
+button, input, .textarea {
   outline: none;
 }
 
@@ -278,6 +556,7 @@ button, input[type=submit] {
   height: 40px;
   border: none;
   font-size: 14px;
+  font-family: Source Sans Pro;
   box-shadow: var(--shadow);
   color: var(--foreground-tone-100);
   background-color: var(--lighter-tone-bg);
@@ -293,7 +572,11 @@ button:active, input[type=submit]:active {
   transition: 0s;
 }
 
-input {
+input, .textarea {
+  resize: none;
+  word-break: break-word;
+  vertical-align: middle;
+  white-space: pre-line;
   background-color: var(--darker-tone-bg);
   border: none;
   height: 40px;
@@ -304,16 +587,16 @@ input {
   padding: 0 16px;
   box-sizing: border-box;
 }
-input::-moz-placeholder {
+input::-moz-placeholder, .textarea::-moz-placeholder {
   color: var(--foreground-tone-40);
 }
-input:-ms-input-placeholder {
+input:-ms-input-placeholder, .textarea:-ms-input-placeholder {
   color: var(--foreground-tone-40);
 }
-input::placeholder {
+input::placeholder, .textarea::placeholder {
   color: var(--foreground-tone-40);
 }
-input:-webkit-autofill {
+input:-webkit-autofill, .textarea:-webkit-autofill {
   background-color: var(--darker-tone-bg) !important;
 }
 

@@ -14,6 +14,11 @@
     width: 24px;
 }
 
+.bubbles-illust {
+    height: 128px;
+    width: 128px;
+}
+
 .logo {
     background-size: cover;
 }
@@ -42,11 +47,16 @@
 
 html, body { height: 100% }
 
+html {
+    --inputbox-height: 56px;
+}
+
 body {
     background-color: var(--normal-tone-bg);
     color: var(--foreground-tone-100);
     margin: 0;
     font-family: Source Sans Pro;
+    touch-action: pan-y, pan-x;
 }
 
 h1,
@@ -63,18 +73,30 @@ h1 {
 
 .buttongroup, form {
     display: flex;
-    flex-direction: column;
     align-items: center;
+
+    &:not(.vertical) {
+        flex-direction: column;
+
+        > * {
+            margin: 4px 0;
+            width: 100%;
+            &:first-child { margin-top: 0 }
+            &:last-child { margin-bottom: 0 }
+        }
+    }
+
+    &.vertical {
+        button, input[type="submit"] {
+            padding: 0 8px;
+            margin: 0 4px;
+            &:first-child { margin-left: 0 }
+            &:last-child { margin-right: 0 }
+        }
+    }
 
     button, input[type="submit"] {
         height: 40px;
-    }
-
-    > * {
-        margin: 4px 0;
-        width: 100%;
-        &:first-child { margin-top: 0 }
-        &:last-child { margin-bottom: 0 }
     }
 
     > a {
@@ -90,12 +112,13 @@ form {
     }
 }
 
-button, input { outline: none }
+button, input, .textarea { outline: none }
 
 button, input[type="submit"] {
     height: 40px;
     border: none;
     font-size: 14px;
+    font-family: Source Sans Pro;
     box-shadow: var(--shadow);
     color: var(--foreground-tone-100);
     background-color: var(--lighter-tone-bg);
@@ -113,7 +136,11 @@ button, input[type="submit"] {
     }
 }
 
-input {
+input, .textarea {
+    resize: none;
+    word-break: break-word;
+    vertical-align: middle;
+    white-space: pre-line;
     background-color: var(--darker-tone-bg);
     border:none;
     height: 40px;

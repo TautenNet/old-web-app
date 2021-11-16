@@ -4,6 +4,9 @@ html {
     --lighter-tone-bg: #ffffff;
     --normal-tone-bg: #f2f2f2;
     --darker-tone-bg: #e2e2e2;
+    --background-tone-light: var(--lighter-tone-bg);
+    --background-tone-normal: var(--normal-tone-bg);
+    --background-tone-dark: var(--darker-tone-bg);
     --icon-mode: "black";
     --shadow: 0 4px 4px #{rgba(#C5B7AD, 0.25)};
     @for $i from 1 through 10 {
@@ -21,5 +24,13 @@ html {
 }
 
 .loadingring {
-    background-image: url(../icons/Loadingring-black.svg);
+    background-image: url("../icons/Loadingring-black.svg");
+}
+
+.bubbles-illust {
+    background-image: url("../icons/bubbles-black.svg");
+}
+
+.icon {
+    filter: brightness(0);
 }
