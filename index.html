@@ -67,8 +67,10 @@
             </div>
             <div class="discussionList">
                 yo
-                <button onclick="screen.switchTo('discussion', {anim:'slideup', duration: 500})" class="escapable">Back</button>
-                <button onclick="screen.switchTo('welcome', {anim:'unscale'})" class="escapable">welcome screen</button>
+                <button onclick="$select('.screens > .discussion').classList.remove('empty')">show discussion</button>
+                <button onclick="$select('.screens > .discussion').classList.add('empty')">no discussion</button>
+                <button onclick="screen.switchTo('discussion', {anim:'slidedown', duration: 500})" class="escapable">Back</button>
+                <button onclick="screen.switchTo('welcome', {anim:'unscale'})">welcome screen</button>
             </div>
             <div class="discussion empty showed" theme-color="var: background-tone-normal">
                 <div class="messages">

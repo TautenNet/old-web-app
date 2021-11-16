@@ -39,6 +39,16 @@
         }
     }
 
+    > .discussionList {
+        //animation: none !important;
+        display:flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 32px;
+    }
+
     > .discussion {
         display:flex;
         flex-direction: column;

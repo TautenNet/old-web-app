@@ -1,5 +1,5 @@
 html {
-  --lighter-tone-bg: #2f3845;
+  --lighter-tone-bg: #2F3845;
   --normal-tone-bg: #252c36;
   --darker-tone-bg: #1d2229;
   --background-tone-light: var(--lighter-tone-bg);
@@ -30,11 +30,11 @@ html {
 }
 
 .logo {
-  background-image: url('../icons/Tauten-logo-white.svg');
+  background-image: url("../icons/Tauten-logo-white.svg");
 }
 
 .back {
-  background-image: url('../icons/arrow_back_white_24dp.svg');
+  background-image: url("../icons/arrow_back_white_24dp.svg");
 }
 
 .loadingring {
